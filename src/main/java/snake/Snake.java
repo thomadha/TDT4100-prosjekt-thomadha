@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Snake {
     
-    List <XYvalue> snakeBody = new ArrayList<>();
-    String direction = "right"; 
+    private List <XYvalue> snakeBody = new ArrayList<>();
+    private String direction = "right"; 
     
 
 
