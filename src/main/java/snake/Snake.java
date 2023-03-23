@@ -68,6 +68,12 @@ public class Snake {
         this.direction = direction;
     }
 
+    //getter
+    public List<XYvalue> getSnakeBody(){
+        return this.snakeBody;
+    }
+
+
 
 
 

@@ -1,9 +1,27 @@
 package snake;
 
+import java.util.Random;
+
 public class XYvalue {
     
     private int xValue;
     private int yValue;
+
+    //KONSTRUKTØR 1 - Genererer en random xy-verdi
+    public XYvalue(){
+        Random random = new Random();
+        int max_value = 11;
+        this.xValue = random.nextInt(max_value);
+        this.yValue = random.nextInt(max_value);
+
+    }
+
+    //KONSTRUKTØR 2
+    public XYvalue(int xValue, int yValue){
+        setxValue(xValue);
+        setyValue(yValue);
+
+    }
 
 
     public void setxValue(int xValue) {
