@@ -11,15 +11,9 @@ public class Snake {
 
     //lager kroppen til slangen. 
     private void generateBody(){
-        XYvalue kroppEn = new  XYvalue();
-        kroppEn.setxValue(1);
-        kroppEn.setyValue(1);
-        XYvalue kroppTo = new  XYvalue();
-        kroppTo.setxValue(2);
-        kroppTo.setyValue(1);
-        XYvalue kroppTre = new  XYvalue();
-        kroppTre.setxValue(3);
-        kroppTre.setyValue(1);
+        XYvalue kroppEn = new  XYvalue(1, 1);
+        XYvalue kroppTo = new  XYvalue(2 , 1);
+        XYvalue kroppTre = new  XYvalue(3 ,1 );
 
         snakeBody.add(kroppEn);
         snakeBody.add(kroppTo);
@@ -33,7 +27,7 @@ public class Snake {
     public void move(){
         int xVerdi = snakeBody.get(2).getxValue();
         int yVerdi = snakeBody.get(2).getyValue();
-        XYvalue kropp = new XYvalue();
+        XYvalue kropp = new XYvalue(xVerdi, yVerdi);
 
         switch(direction){
             case("right"):xVerdi += 1; 
