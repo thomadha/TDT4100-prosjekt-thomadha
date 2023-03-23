@@ -9,7 +9,7 @@ public class Snake {
     private String direction = "right"; 
     
 
-
+    //lager kroppen til slangen. 
     private void generateBody(){
         XYvalue kroppEn = new  XYvalue();
         kroppEn.setxValue(1);
@@ -29,7 +29,7 @@ public class Snake {
 
 
 
-
+    //flytter slangen i den rettningen den peker
     public void move(){
         int xVerdi = snakeBody.get(2).getxValue();
         int yVerdi = snakeBody.get(2).getyValue();
@@ -47,11 +47,13 @@ public class Snake {
         }
         kropp.setxValue(xVerdi);
         kropp.setyValue(yVerdi);
+        //sjekker om ny del av slangen allerede er en del av slangen. 
         for (XYvalue part : snakeBody) {
             if(part.equals(kropp)){
                 throw new IllegalArgumentException("Du krasjet i deg selv!");
             }
         }
+        //Leger til ny del og fjerner halen. 
         snakeBody.add(kropp);
         snakeBody.remove(0);
     }
