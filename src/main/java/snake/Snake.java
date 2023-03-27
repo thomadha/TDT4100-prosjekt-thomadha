@@ -79,20 +79,9 @@ public class Snake {
 
 
     public static void main(String[] args) {
-        Snake slange = new Snake();
-        System.out.println(slange);
-        slange.move();
-        System.out.println(slange);
-        slange.move();
-        slange.move();
-        System.out.println(slange);
-        slange.changeDirection("down");
-        slange.move();
-        System.out.println(slange);
-        slange.move();
-        System.out.println(slange);
-        slange.move();
-        System.out.println(slange);
+        Game game = new Game();
+        game.moveSnake();
+        System.out.println(game.getSnake());
 
     }
 }

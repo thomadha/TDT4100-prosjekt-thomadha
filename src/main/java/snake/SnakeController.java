@@ -22,13 +22,15 @@ public class SnakeController {
     @FXML
     private void initializeGame() { //må bytte ut med egen et ellet annet
 
-        Snake snake = new Snake();
-        this.snake = snake;
+        Game new_game = new Game();
+        this.snake = new_game.getSnake();
 
         for (XYvalue bodypart: snake.getSnakeBody()){
             Node node = bodypart.getRectangle();
             spillbrett.add(node, bodypart.getxValue(), bodypart.getyValue());
         }
+
+        
     
     }
 

@@ -1,16 +1,26 @@
 package snake;
 
+import java.util.Timer;
+import java.util.TimerTask;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+
 public class Game {
     //FELTER
     private int score;
     private Snake snake;
 
     //KONSTRUKTØR
+    public Game(){
+        this.snake = new Snake();
+    }
 
     //METODER
-    public void initializeGame(){
-        
+
+    public Snake getSnake(){
+        return this.snake;
     }
+
     public void placeApple(){
         
         XYvalue coordinateApple = new XYvalue();
@@ -20,6 +30,17 @@ public class Game {
             placeApple();
         } 
 
+    }
+
+    public void moveSnake(){
+        Timer t = new Timer();
+        t.schedule(new TimerTask() {
+            @Override
+            public void run() {
+            snake.move();
+            System.out.println(snake);
+            }
+        }, 1000, 500);
     }
 
     
