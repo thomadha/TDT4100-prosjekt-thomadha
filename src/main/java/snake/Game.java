@@ -41,6 +41,7 @@ public class Game {
             snake.move();
             System.out.println(snake);
             //kalle draw board på! 
+            
             }
         }, 1000, 500);
     }

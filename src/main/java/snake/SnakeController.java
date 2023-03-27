@@ -32,12 +32,13 @@ public class SnakeController {
             spillbrett.add(node, bodypart.getxValue(), bodypart.getyValue());
         }
 
-
+        new_game.moveSnake();
         
     }
 
     @FXML
     private void drawBoard(){
+
         for (XYvalue bodypart: snake.getSnakeBody()){
             Node node = bodypart.getRectangle();
             spillbrett.add(node, bodypart.getxValue(), bodypart.getyValue());
