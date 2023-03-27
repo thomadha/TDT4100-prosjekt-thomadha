@@ -34,11 +34,24 @@ public class SnakeController {
             Node node = bodypart.getRectangle();
             spillbrett.add(node, bodypart.getxValue(), bodypart.getyValue());
        }
-
-       
     
-      
-       
+    }
+
+    @FXML
+    private void right(){
+        snake.changeDirection("right");
+    }
+    @FXML
+    private void left(){
+        snake.changeDirection("left");
+    }
+    @FXML
+    private void up(){
+        snake.changeDirection("up");
+    }
+    @FXML
+    private void down(){
+        snake.changeDirection("down");
     }
 
     @FXML
