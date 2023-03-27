@@ -1,5 +1,7 @@
 package snake;
 
+import java.util.Timer;
+
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
@@ -30,8 +32,16 @@ public class SnakeController {
             spillbrett.add(node, bodypart.getxValue(), bodypart.getyValue());
         }
 
+
         
-    
+    }
+
+    @FXML
+    private void drawBoard(){
+        for (XYvalue bodypart: snake.getSnakeBody()){
+            Node node = bodypart.getRectangle();
+            spillbrett.add(node, bodypart.getxValue(), bodypart.getyValue());
+        }
     }
 
     @FXML

@@ -33,12 +33,14 @@ public class Game {
     }
 
     public void moveSnake(){
+
         Timer t = new Timer();
         t.schedule(new TimerTask() {
             @Override
             public void run() {
             snake.move();
             System.out.println(snake);
+            //kalle draw board på! 
             }
         }, 1000, 500);
     }

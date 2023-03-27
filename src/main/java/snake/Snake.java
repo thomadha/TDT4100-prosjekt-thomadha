@@ -47,6 +47,7 @@ public class Snake {
         //Leger til ny del og fjerner halen. 
         snakeBody.add(kropp);
         snakeBody.remove(0);
+    
     }
 
 
