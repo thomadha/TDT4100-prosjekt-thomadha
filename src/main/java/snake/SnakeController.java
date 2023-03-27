@@ -1,9 +1,13 @@
 package snake;
 
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 public class SnakeController {
     @FXML
@@ -20,10 +24,20 @@ public class SnakeController {
 
     @FXML
     private void initializeGame() { //må bytte ut med egen et ellet annet
-       Snake snake = new Snake();
-       this.snake = snake;
 
-       spillbrett.getChildren().get(1)
+       // Rectangle coloredTile = new Rectangle(30, 30).setFill(Color.BLUE);
+
+        Snake snake = new Snake();
+        this.snake = snake;
+
+        for (XYvalue bodypart: snake.getSnakeBody()){
+            Node node = bodypart.getRectangle();
+            spillbrett.add(node, bodypart.getxValue(), bodypart.getyValue());
+       }
+
+       
+    
+      
        
     }
 

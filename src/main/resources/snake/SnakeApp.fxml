@@ -24,7 +24,7 @@
             <Reflection />
          </effect>
       </Label>
-      <Button layoutX="769.0" layoutY="260.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="162.0" text="START" textAlignment="CENTER">
+      <Button layoutX="769.0" layoutY="260.0" mnemonicParsing="false" onAction="#initializeGame" prefHeight="60.0" prefWidth="162.0" text="START" textAlignment="CENTER">
          <font>
             <Font name="Bodoni 72 Book" size="30.0" />
          </font>
@@ -68,7 +68,7 @@
             <Font name="Helvetica Neue" size="30.0" />
          </font>
       </Button>
-      <GridPane gridLinesVisible="true" layoutX="333.0" layoutY="196.0" prefHeight="350.0" prefWidth="350.0">
+      <GridPane fx:id="spillbrett" gridLinesVisible="true" layoutX="333.0" layoutY="196.0" prefHeight="350.0" prefWidth="350.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="30.0" />
           <ColumnConstraints hgrow="SOMETIMES" minWidth="30.0" prefWidth="30.0" />

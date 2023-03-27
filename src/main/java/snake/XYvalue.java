@@ -1,11 +1,14 @@
 package snake;
 
 import java.util.Random;
+import javafx.scene.shape.Rectangle;
+import javafx.scene.paint.Color;
 
 public class XYvalue {
     
     private int xValue;
     private int yValue;
+    private Rectangle rektangel; 
 
     //KONSTRUKTØR 1 - Genererer en random xy-verdi
     public XYvalue(){
@@ -20,7 +23,7 @@ public class XYvalue {
     public XYvalue(int xValue, int yValue){
         setxValue(xValue);
         setyValue(yValue);
-
+        this.rektangel = new Rectangle(30, 30, Color.BLUE);
     }
 
 
@@ -42,6 +45,10 @@ public class XYvalue {
     public int getyValue() {
         return yValue;
     } 
+
+    public Rectangle getRectangle(){
+        return rektangel; 
+    }
 
     
 }
