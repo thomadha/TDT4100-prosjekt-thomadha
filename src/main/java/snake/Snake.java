@@ -7,20 +7,17 @@ public class Snake {
     
     private List <XYvalue> snakeBody = new ArrayList<>();
     private String direction = "right"; 
-    
 
-    //lager kroppen til slangen. 
-    private void generateBody(){
+    //KONSTRUKTØR -> LAGER KROPPEN TIL SLANGEN
+    public Snake(){
         XYvalue kroppEn = new  XYvalue(1, 1);
         XYvalue kroppTo = new  XYvalue(2 , 1);
         XYvalue kroppTre = new  XYvalue(3 ,1 );
-
         snakeBody.add(kroppEn);
         snakeBody.add(kroppTo);
         snakeBody.add(kroppTre);
 
     }
-
 
 
     //flytter slangen i den rettningen den peker
@@ -83,7 +80,6 @@ public class Snake {
 
     public static void main(String[] args) {
         Snake slange = new Snake();
-        slange.generateBody();
         System.out.println(slange);
         slange.move();
         System.out.println(slange);

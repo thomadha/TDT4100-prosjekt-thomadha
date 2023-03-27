@@ -8,6 +8,9 @@ public class Game {
     //KONSTRUKTØR
 
     //METODER
+    public void initializeGame(){
+        
+    }
     public void placeApple(){
         
         XYvalue coordinateApple = new XYvalue();
