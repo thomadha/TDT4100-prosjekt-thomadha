@@ -1,5 +1,7 @@
 package snake;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -28,15 +30,28 @@ public class SnakeController {
         Game new_game = new Game();
         this.snake = new_game.getSnake();
 
-        for (XYvalue bodypart : snake.getSnakeBody()) {
-            Node node = bodypart.getRectangle();
-            spillbrett.add(node, bodypart.getxValue(), bodypart.getyValue());
-        }
+        this.drawBoard();
+
+        Timer t = new Timer();
+        t.schedule(new TimerTask() {
+            @Override
+            public void run() {
+            snake.move();
+            System.out.println(snake);
+            XYvalue part = snake.getSnakeBody().get(2);
+            Node node = part.getRectangle();
+            spillbrett.add(node, part.getxValue(), part.getyValue());
+            }
+        }, 1000, 500);
 
     }
 
     @FXML
     private void drawBoard(){
+        for (XYvalue bodypart : snake.getSnakeBody()) {
+            Node node = bodypart.getRectangle();
+            spillbrett.add(node, bodypart.getxValue(), bodypart.getyValue());
+        }
 
     }
 
