@@ -1,7 +1,5 @@
 package snake;
 
-import java.util.Random;
-
 public class Game {
     //FELTER
     private int score;
