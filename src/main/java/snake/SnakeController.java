@@ -22,4 +22,7 @@ public class SnakeController {
         
     }
 
+    // noe som sjekker hver gang slangen flytter seg 
+    // swiper hele brettet og fargerlegge det som skal fargelegges på nytt 
+
 }
