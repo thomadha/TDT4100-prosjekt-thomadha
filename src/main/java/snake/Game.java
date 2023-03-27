@@ -38,8 +38,7 @@ public class Game {
             public void run() {
             snake.move();
             System.out.println(snake);
-            //kalle draw board på! 
-            
+            //kalle draw board på!
             }
         }, 1000, 500);
     }
