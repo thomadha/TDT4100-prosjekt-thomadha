@@ -19,6 +19,12 @@ public class SnakeController {
     private TextField navn;
 
     @FXML
+    private Text poengScore; 
+    
+    @FXML
+    private Text leaderBoard; 
+
+    @FXML
     private GridPane spillbrett;
 
     @FXML
