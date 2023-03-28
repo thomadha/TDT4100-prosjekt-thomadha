@@ -1,7 +1,7 @@
 package snake;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import javafx.scene.Node;
+import javafx.scene.layout.GridPane;
 
 public class Game {
     //FELTER
@@ -17,6 +17,14 @@ public class Game {
 
     public Snake getSnake(){
         return this.snake;
+    }
+
+    public void drawBoard(GridPane spillbrett){
+        for (XYvalue bodypart : snake.getSnakeBody()) {
+            Node node = bodypart.getRectangle();
+            spillbrett.add(node, bodypart.getxValue(), bodypart.getyValue());
+            
+        }
     }
 
     public void placeApple(){

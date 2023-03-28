@@ -51,8 +51,6 @@ public class Snake {
     }
 
 
-
-
     public void changeDirection(String direction){
         if(!(direction.matches("right|left|up|down"))){
             throw new IllegalArgumentException("Må være en gyldig rettning");
@@ -64,8 +62,6 @@ public class Snake {
     public List<XYvalue> getSnakeBody(){
         return this.snakeBody;
     }
-
-
 
 
 

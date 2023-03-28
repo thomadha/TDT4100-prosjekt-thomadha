@@ -2,8 +2,6 @@ package snake;
 
 import java.net.URL;
 import java.time.Duration;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -22,7 +20,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.shape.Rectangle;
 
-public class SnakeController implements Initializable{
+public class SnakeController {
     @FXML
     private TextField navn;
 
@@ -41,32 +39,24 @@ public class SnakeController implements Initializable{
         Game new_game = new Game();
         this.snake = new_game.getSnake();
 
-        this.drawBoard();
+        //Kaller på metode som tegner inn slangen
+        new_game.drawBoard(spillbrett);
 
+        Timeline klokke = new Timeline(new KeyFrame(javafx.util.Duration.seconds(1.0), e ->{
+            snake.move();
 
-        // Timer t = new Timer();
-        // t.schedule(new TimerTask() {
-        //     @Override
-        //     public void run() {
-        //     snake.move();
-        //     System.out.println(snake);
-        //     spillbrett.getChildren().clear();
-        //     XYvalue part = snake.getSnakeBody().get(2);
-        //     Node node = part.getRectangle();
-        //     spillbrett.add(node, part.getxValue(), part.getyValue());
-        //     }
-        // }, 1000, 500); 
+            //MANGLER NOE HER FOR Å FJERNE DEN "GAMLE" SLANGEN !
+
+            new_game.drawBoard(spillbrett);
+    
+        }));
+        klokke.setCycleCount(Animation.INDEFINITE);
+        klokke.playFromStart();
+
 
     }
 
-    @FXML
-    private void drawBoard(){
-        for (XYvalue bodypart : snake.getSnakeBody()) {
-            Node node = bodypart.getRectangle();
-            spillbrett.add(node, bodypart.getxValue(), bodypart.getyValue());
-        }
-
-    }
+    
 
     @FXML
     private void right() {
@@ -88,7 +78,7 @@ public class SnakeController implements Initializable{
         snake.changeDirection("down");
     }
 
-    @Override
+   /*  @Override
     public void initialize(URL location, ResourceBundle resources) {
 
         Game new_game = new Game();
@@ -103,7 +93,7 @@ public class SnakeController implements Initializable{
 
         klokke.setCycleCount(Animation.INDEFINITE);
         klokke.play();
-    }
+    } */
 
 
 
