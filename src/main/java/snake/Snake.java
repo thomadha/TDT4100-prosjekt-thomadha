@@ -19,7 +19,13 @@ public class Snake {
 
     }
 
+    //STANDARDMETODER
+    public List<XYvalue> getSnakeBody(){
+        return this.snakeBody;
+    }
 
+
+    //ANDRE METODER
     //flytter slangen i den rettningen den peker
     public void move(){
         int xVerdi = snakeBody.get(2).getxValue();
@@ -58,21 +64,12 @@ public class Snake {
         this.direction = direction;
     }
 
-    //getter
-    public List<XYvalue> getSnakeBody(){
-        return this.snakeBody;
-    }
-
-
-
+   
 
     @Override
     public String toString() {
         return "[snakeBody= {X:" + snakeBody.get(0).getxValue() + " Y:" + snakeBody.get(0).getyValue() + "} {X:" + snakeBody.get(1).getxValue() + " Y:" + snakeBody.get(1).getyValue() + "} {X:" + snakeBody.get(2).getxValue() + " Y:" + snakeBody.get(2).getyValue() + "}]";
     }
-
-
-
 
 
     public static void main(String[] args) {

@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Stop;
+import javafx.scene.text.Text;
 
 public class SnakeController {
     @FXML
@@ -41,32 +42,21 @@ public class SnakeController {
 
         //Kaller på metode som tegner inn slangen
         new_game.drawBoard(spillbrett);
-        Apple new_apple = new Apple();
-        new_game.placeApple(spillbrett, new_apple);
+        
+        new_game.placeApple(spillbrett, new Apple());
 
         Timeline klokke = new Timeline(new KeyFrame(javafx.util.Duration.seconds(0.5), e ->{
-            try{
+            
                 snake.move();
                 System.out.println(snake);
+                System.out.println(new_game.getApple());
 
-                List <Node> ting = new ArrayList<>();
-                ting.add(spillbrett.getChildren().get(0));
-                ting.add(new_apple.getApplenode());
+                new_game.checkIfAppleIsEatenAndMore(spillbrett, snake, new_game.getApple());
 
-                //Rensker brettet
-                spillbrett.getChildren().retainAll(ting);
+                //Endrer poengscore
+                poengScore.setText(Integer.toString(new_game.getScore()));
+            
                 
-                
-                //Tegner den nye oppdaterte slangen
-                new_game.drawBoard(spillbrett);
-                
-
-            } catch(Exception k) {
-                System.out.println("Du er henta!");
-                
-            }
-
-    
         }));
 
         klokke.setCycleCount(Animation.INDEFINITE);
@@ -95,8 +85,5 @@ public class SnakeController {
     }
 
 
-
-    // noe som sjekker hver gang slangen flytter seg
-    // swiper hele brettet og fargerlegge det som skal fargelegges på nytt
 
 }

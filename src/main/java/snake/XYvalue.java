@@ -28,21 +28,25 @@ public class XYvalue {
     }
 
 
+    //STANDARDMETODER
     public void setxValue(int xValue) {
         if(xValue>10 || xValue<0){
             throw new IllegalArgumentException("Du traff veggen!");
         }
         this.xValue = xValue;
     }
+
     public void setyValue(int yValue) {
         if(yValue>10 || yValue<0){
             throw new IllegalArgumentException("Du traff veggen!");
         }
         this.yValue = yValue;
     }
+
     public int getxValue() {
         return xValue;
     }
+
     public int getyValue() {
         return yValue;
     } 
@@ -50,6 +54,13 @@ public class XYvalue {
     public Rectangle getRectangle(){
         return rektangel; 
     }
+
+    @Override
+    public String toString() {
+        return "X:" + getxValue() + "  Y: " + getyValue() ;
+    }
+
+    
 
     
 }

@@ -107,7 +107,7 @@
             <Font size="24.0" />
          </font>
       </Label>
-      <Text fx:id="poengScore" layoutX="170.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
-      <Text fx:id="leaderBoard" layoutX="171.0" layoutY="405.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="poengScore" layoutX="170.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0" />
+      <Text fx:id="leaderBoard" layoutX="171.0" layoutY="405.0" strokeType="OUTSIDE" strokeWidth="0.0" text=" " />
    </children>
 </AnchorPane>

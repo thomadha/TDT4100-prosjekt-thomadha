@@ -22,6 +22,14 @@ public class Apple {
     public Node getApplenode() {
         return applenode;
     }
+
+
+    @Override
+    public String toString() {
+        return "Apple [coordinate=" + coordinate + "]";
+    }
+
+    
     
     
     
