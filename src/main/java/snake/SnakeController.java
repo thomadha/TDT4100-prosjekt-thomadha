@@ -45,7 +45,10 @@ public class SnakeController {
         Timeline klokke = new Timeline(new KeyFrame(javafx.util.Duration.seconds(1.0), e ->{
             snake.move();
 
-            //MANGLER NOE HER FOR Å FJERNE DEN "GAMLE" SLANGEN !
+            
+            //MANGLER NOE HER FOR Å FJERNE DEN "GAMLE" SLANGEN ! det nedenfor funket ikke hehe.
+            //spillbrett.getChildren().removeIf( node -> GridPane.getColumnIndex(node) == snake.getSnakeBody().get(0).getxValue() && GridPane.getRowIndex(node) == snake.getSnakeBody().get(0).getyValue());
+
 
             new_game.drawBoard(spillbrett);
     
