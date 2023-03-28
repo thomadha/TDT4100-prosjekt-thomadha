@@ -1,24 +1,18 @@
 package snake;
 
-import java.net.URL;
-import java.time.Duration;
-import java.util.ResourceBundle;
-import java.util.Timer;
-import java.util.TimerTask;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
+import java.util.ArrayList;
+import java.util.List;
 
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
+
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.shape.Rectangle;
+import javafx.scene.paint.Stop;
 
 public class SnakeController {
     @FXML
@@ -41,25 +35,38 @@ public class SnakeController {
 
         //Kaller på metode som tegner inn slangen
         new_game.drawBoard(spillbrett);
+        Apple new_apple = new Apple();
+        new_game.placeApple(spillbrett, new_apple);
 
         Timeline klokke = new Timeline(new KeyFrame(javafx.util.Duration.seconds(1.0), e ->{
-            snake.move();
+            try{
+                snake.move();
+                System.out.println(snake);
 
-            
-            //MANGLER NOE HER FOR Å FJERNE DEN "GAMLE" SLANGEN ! det nedenfor funket ikke hehe.
-            //spillbrett.getChildren().removeIf( node -> GridPane.getColumnIndex(node) == snake.getSnakeBody().get(0).getxValue() && GridPane.getRowIndex(node) == snake.getSnakeBody().get(0).getyValue());
+                List <Node> ting = new ArrayList<>();
+                ting.add(spillbrett.getChildren().get(0));
+                ting.add(new_apple.getApplenode());
 
+                //Rensker brettet
+                spillbrett.getChildren().retainAll(ting);
+                
+                
+                //Tegner den nye oppdaterte slangen
+                new_game.drawBoard(spillbrett);
+                
 
-            new_game.drawBoard(spillbrett);
+            } catch(Exception k) {
+                System.out.println("Du er henta!");
+                
+            }
+
     
         }));
+
         klokke.setCycleCount(Animation.INDEFINITE);
         klokke.playFromStart();
-
-
     }
 
-    
 
     @FXML
     private void right() {

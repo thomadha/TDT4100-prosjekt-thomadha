@@ -16,6 +16,7 @@ public class XYvalue {
         int max_value = 11;
         this.xValue = random.nextInt(max_value);
         this.yValue = random.nextInt(max_value);
+        this.rektangel = new Rectangle(30, 30, Color.RED);
 
     }
 

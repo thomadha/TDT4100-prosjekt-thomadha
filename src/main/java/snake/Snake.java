@@ -76,9 +76,7 @@ public class Snake {
 
 
     public static void main(String[] args) {
-        Game game = new Game();
-        game.moveSnake();
-        System.out.println(game.getSnake());
+        
 
     }
 }
