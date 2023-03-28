@@ -38,7 +38,7 @@ public class SnakeController {
         Apple new_apple = new Apple();
         new_game.placeApple(spillbrett, new_apple);
 
-        Timeline klokke = new Timeline(new KeyFrame(javafx.util.Duration.seconds(1.0), e ->{
+        Timeline klokke = new Timeline(new KeyFrame(javafx.util.Duration.seconds(0.5), e ->{
             try{
                 snake.move();
                 System.out.println(snake);
