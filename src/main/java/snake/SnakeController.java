@@ -81,23 +81,6 @@ public class SnakeController {
         snake.changeDirection("down");
     }
 
-   /*  @Override
-    public void initialize(URL location, ResourceBundle resources) {
-
-        Game new_game = new Game();
-        this.snake = new_game.getSnake();
-        this.drawBoard();
-
-        Timeline klokke = new Timeline(new KeyFrame(Duration.ofSeconds(1), e -> {
-            snake.move();
-            this.drawBoard();
-        }));
-
-
-        klokke.setCycleCount(Animation.INDEFINITE);
-        klokke.play();
-    } */
-
 
 
     // noe som sjekker hver gang slangen flytter seg
