@@ -25,7 +25,7 @@
             <Reflection />
          </effect>
       </Label>
-      <Button layoutX="769.0" layoutY="260.0" mnemonicParsing="false" onAction="#initializeGame" prefHeight="60.0" prefWidth="162.0" text="START" textAlignment="CENTER">
+      <Button alignment="CENTER" contentDisplay="CENTER" layoutX="769.0" layoutY="260.0" mnemonicParsing="false" onAction="#initializeGame" prefHeight="60.0" prefWidth="162.0" text="START" textAlignment="CENTER">
          <font>
             <Font name="Bodoni 72 Book" size="30.0" />
          </font>

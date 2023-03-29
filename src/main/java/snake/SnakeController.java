@@ -93,6 +93,7 @@ public class SnakeController {
     føre inn poengscore og leaderboard 
     fikse evig loop, spillet må kunne avslutte. 
     Gjøre noe med brukergrensesnittet når spillet er over??? 
+    Fikse så slangen ikke kan kjøre gjennom seg selv??
     
      */
 
