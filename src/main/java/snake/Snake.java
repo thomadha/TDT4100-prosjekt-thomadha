@@ -19,17 +19,11 @@ public class Snake {
 
     }
 
-    //STANDARDMETODER
-    public List<XYvalue> getSnakeBody(){
-        return this.snakeBody;
-    }
 
-
-    //ANDRE METODER
     //flytter slangen i den rettningen den peker
     public void move(){
-        int xVerdi = snakeBody.get(2).getxValue();
-        int yVerdi = snakeBody.get(2).getyValue();
+        int xVerdi = snakeBody.get(snakeBody.size()-1).getxValue();
+        int yVerdi = snakeBody.get(snakeBody.size()-1).getyValue();
         XYvalue kropp = new XYvalue(xVerdi, yVerdi);
 
         switch(direction){
@@ -56,6 +50,23 @@ public class Snake {
     
     }
 
+    public void grow(Apple apple){
+        int xVerdi = apple.getCoordinate().getxValue();
+        int yVerdi = apple.getCoordinate().getyValue();
+        switch(direction){
+            case("right"):xVerdi += 1; 
+                break;
+            case("left"): xVerdi -= 1;
+                break;
+            case("up"): yVerdi -= 1;
+                break;
+            case("down"): yVerdi += 1;
+                break;
+        }
+        XYvalue kropp = new XYvalue(xVerdi,yVerdi);
+        snakeBody.add(kropp);
+    }
+
 
     public void changeDirection(String direction){
         if(!(direction.matches("right|left|up|down"))){
@@ -64,12 +75,19 @@ public class Snake {
         this.direction = direction;
     }
 
-   
+    //getter
+    public List<XYvalue> getSnakeBody(){
+        return this.snakeBody;
+    }
+
 
     @Override
     public String toString() {
         return "[snakeBody= {X:" + snakeBody.get(0).getxValue() + " Y:" + snakeBody.get(0).getyValue() + "} {X:" + snakeBody.get(1).getxValue() + " Y:" + snakeBody.get(1).getyValue() + "} {X:" + snakeBody.get(2).getxValue() + " Y:" + snakeBody.get(2).getyValue() + "}]";
     }
+
+
+
 
 
     public static void main(String[] args) {

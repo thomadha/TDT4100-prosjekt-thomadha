@@ -92,10 +92,13 @@ public class Game {
             //rensker og adder på score
             spillbrett.getChildren().retainAll(ting2);
             this.score++;
+            this.snake.grow(new_apple);
 
             //tegner brettet på nytt med ny slange, vil plassere nytt eple
             this.drawBoard(spillbrett);
             this.placeApple(spillbrett, new Apple());
+
+
 
         }
         //Hvis eplet ikke er spist
