@@ -84,6 +84,16 @@ public class SnakeController {
         snake.changeDirection("down");
     }
 
+    /* 
+    Hva vi mangler: 
 
+    Lage tester
+    Lese fra fil 
+    fikse brukernavn 
+    føre inn poengscore og leaderboard 
+    fikse evig loop, spillet må kunne avslutte. 
+    Gjøre noe med brukergrensesnittet når spillet er over??? 
+    
+     */
 
 }

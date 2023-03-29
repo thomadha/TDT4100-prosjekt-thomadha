@@ -2,7 +2,7 @@ package snake;
 
 import javafx.scene.Node;
 
-public class Apple {
+public class Apple implements SnakeInterface {
     //FELTER
     private XYvalue coordinate;
     private Node applenode;
@@ -27,6 +27,18 @@ public class Apple {
     @Override
     public String toString() {
         return "Apple [coordinate=" + coordinate + "]";
+    }
+
+
+    @Override
+    public int getxValue() {
+        return coordinate.getxValue();
+    }
+
+
+    @Override
+    public int getyValue() {
+        return coordinate.getyValue();
     }
 
     

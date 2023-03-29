@@ -3,7 +3,7 @@ package snake;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Snake {
+public class Snake  {
     
     private List <XYvalue> snakeBody = new ArrayList<>();
     private String direction = "right"; 
@@ -94,4 +94,5 @@ public class Snake {
         
 
     }
+
 }

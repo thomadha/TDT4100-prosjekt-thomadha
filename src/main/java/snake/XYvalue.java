@@ -4,7 +4,7 @@ import java.util.Random;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.paint.Color;
 
-public class XYvalue {
+public class XYvalue implements SnakeInterface {
     
     private int xValue;
     private int yValue;
@@ -59,6 +59,11 @@ public class XYvalue {
     public String toString() {
         return "X:" + getxValue() + "  Y: " + getyValue() ;
     }
+
+	@Override
+	public XYvalue getCoordinate() {
+        return this;
+	}
 
     
 
