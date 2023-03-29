@@ -51,7 +51,7 @@ public class Game {
         }
     }
 
-
+    //Plasserer et nytt eple
     public void placeApple(GridPane spillbrett, Apple apple){
         this.apple = apple;
         spillbrett.add(apple.getApplenode(), apple.getCoordinate().getxValue(), apple.getCoordinate().getyValue());
@@ -64,36 +64,49 @@ public class Game {
 
     }
 
-    public void checkIfAppleIsEatenAndMore(GridPane spillbrett, Snake snake, Apple new_apple){
+    //Sjekker om eplet er spist
+    public boolean isAppleEaten(GridPane spillbrett, Snake snake, Apple new_apple){
+        for (XYvalue body: snake.getSnakeBody()){
+            if(body.getxValue() == new_apple.getCoordinate().getxValue() && body.getyValue() == new_apple.getCoordinate().getyValue()){
+                return true;
+            }
+
+        }
+        return false;
+            
+        
+    }
+
+    //Flytter på slangen, generering av nytt eple, øking av poengscore
+    public void updateBoard(GridPane spillbrett, Snake snake, Apple new_apple){
 
         //Liste med noder vi vil "beholde" etter rensking (grid-linjer og eplet om slangen ikke har spist det)
         List<Node> ting2 = new ArrayList<Node>();
         ting2.add(spillbrett.getChildren().get(0));
         ting2.add(new_apple.getApplenode());
 
-        //Sjekker om slangen har spist eplet (om noen av koordinatene i slangens kropp matcher koordinatet til eplet)
-        for (XYvalue body: snake.getSnakeBody()){
-            if(body.getxValue() == new_apple.getCoordinate().getxValue() && body.getyValue() == new_apple.getCoordinate().getyValue()){
+        //Hvis eplet er spist
+        if(isAppleEaten(spillbrett, snake, new_apple)){
+            ting2.remove(new_apple.getApplenode());
 
-                //HVIS JA: Fjerne eplet fra listen med noder vi vil beholde (vil renske vekk eplet også)
-                ting2.remove(new_apple.getApplenode());
+            //rensker og adder på score
+            spillbrett.getChildren().retainAll(ting2);
+            this.score++;
 
-                //rensker og adder på score
-                spillbrett.getChildren().retainAll(ting2);
-                this.score++;
+            //tegner brettet på nytt med ny slange, vil plassere nytt eple
+            this.drawBoard(spillbrett);
+            this.placeApple(spillbrett, new Apple());
 
-                //tegner brettet på nytt med ny slange, vil plassere nytt eple
-                this.drawBoard(spillbrett);
-                this.placeApple(spillbrett, new Apple());
+        }
+        //Hvis eplet ikke er spist
+        else{
+            //HVIS NEI: Behold eplet i listen med noder vi vil beholde, tegne brettet på nytt (oppdaterer kun slangen)
+            spillbrett.getChildren().retainAll(ting2);
+            this.drawBoard(spillbrett);
 
-            }
-        
-                
         }
 
-        //HVIS NEI: Behold eplet i listen med noder vi vil beholde, tegne brettet på nytt (oppdaterer kun slangen)
-        spillbrett.getChildren().retainAll(ting2);
-        this.drawBoard(spillbrett);
+
     }
 
 

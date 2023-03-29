@@ -1,18 +1,13 @@
 package snake;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Stop;
 import javafx.scene.text.Text;
 
 public class SnakeController {
@@ -46,15 +41,20 @@ public class SnakeController {
         new_game.placeApple(spillbrett, new Apple());
 
         Timeline klokke = new Timeline(new KeyFrame(javafx.util.Duration.seconds(0.5), e ->{
-            
+            try{
                 snake.move();
                 System.out.println(snake);
                 System.out.println(new_game.getApple());
 
-                new_game.checkIfAppleIsEatenAndMore(spillbrett, snake, new_game.getApple());
+                //Genererer nytt eple og sjekker om 
+                new_game.updateBoard(spillbrett, snake, new_game.getApple());
 
                 //Endrer poengscore
                 poengScore.setText(Integer.toString(new_game.getScore()));
+
+            }catch(Exception k){
+                System.out.println("Du er henta!"); //HVORDAN STOPPE KLOKKE?
+            }
             
                 
         }));
