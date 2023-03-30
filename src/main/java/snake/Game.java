@@ -12,6 +12,7 @@ public class Game {
     private Snake snake;
     private Apple apple;
     private List <Node> childrenOfSnake= new ArrayList<>();
+    private String name;
 
     //KONSTRUKTØR
     public Game(){
