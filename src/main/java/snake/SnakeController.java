@@ -1,12 +1,18 @@
 package snake;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
 
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
@@ -14,13 +20,16 @@ import javafx.scene.text.Text;
 
 public class SnakeController {
     @FXML
+    private AnchorPane background;
+
+    @FXML
     private TextField navn;
 
     @FXML
     private Text poengScore;
 
     @FXML
-    private Text leaderBoard;
+    private TextArea leaderBoard;
 
     @FXML
     private GridPane spillbrett;
@@ -32,14 +41,21 @@ public class SnakeController {
     private Snake snake;
 
     @FXML
+    private User user;
+
+    @FXML
+    private Highscore scoreboard = new Highscore();
+
+    @FXML
     private Timeline klokke;
 
     @FXML
     private void initializeGame() { // må bytte ut med egen et ellet annet
 
         Game new_game = new Game();
-        this.snake = new_game.getSnake();
         String navn = this.navn.getText();
+        this.user = new User(this.navn.getText(),new_game.getScore());
+        this.snake = new_game.getSnake();
 
         // Kaller på metode som tegner inn slangen
         new_game.drawBoard(spillbrett);
@@ -62,14 +78,49 @@ public class SnakeController {
             } catch(Exception k){
                 klokke.stop();
                 System.out.println("Game over");
-                Rectangle popup = new Rectangle(50, 50, Color.LIGHTSKYBLUE);
-                TextField gameover = new TextField("GAME OVER" + "\n Score: " + new_game.getScore());
+                
+                //Update scoreboard
+                new_game.addRoundToLeaderBoard(navn, Integer.parseInt(poengScore.getText()), scoreboard);
+                updateGameLeaderBoard(leaderBoard, "Scores.txt");
+
+
+
+                //Rectangle popup = new Rectangle(600, 500, Color.LIGHTSKYBLUE);
+                //background.getChildren().add(popup);
+
+                //Text gameover = new Text("GAME OVER" + "\n Score: " + new_game.getScore());
+                //background.getChildren().add(gameover); 
+
+
+
+                
             }
 
         }));
 
         klokke.setCycleCount(Animation.INDEFINITE);
         klokke.playFromStart();
+    }
+    @FXML
+    public void updateGameLeaderBoard(TextArea leaderboard, String filename){
+        try {
+            Scanner scanner = new Scanner(new File(filename));
+            while(scanner.hasNextLine()){
+                String line = scanner.nextLine();
+                String[] lineInfo = line.split(",");
+
+                String name = lineInfo[0];
+                String score = lineInfo[1];
+
+                //leaderboard.setText(name + "                                            " + score + "points" + "\n");
+                leaderboard.appendText(name + "                                            " + score + "points" + "\n");
+            }
+            scanner.close();
+
+
+        } catch (FileNotFoundException e) {
+           System.out.println("Noe gikk galt");
+        }
     }
 
     @FXML
@@ -99,9 +150,9 @@ public class SnakeController {
      * Lese fra fil
      * fikse brukernavn
      * føre inn poengscore og leaderboard
-     * fikse evig loop, spillet må kunne avslutte.
+     
      * Gjøre noe med brukergrensesnittet når spillet er over???
-     * Fikse så slangen ikke kan kjøre gjennom seg selv??
+
      * 
      */
 

@@ -95,7 +95,17 @@ public class Highscore {
         }
     }
 
+    
+
     //FILHÅNDTERING
+
+    //MÅ FIKSE TOSTRING PÅ EN ELLER ANNEN MÅTE
+    /* @Override
+    public String toString() {
+        for(String i: this.getHighscore().keySet()){
+            return "\n Navn: " + i +  "            Score: " + this.getHighscore().get(i);
+        }
+    } */
 
     //SKRIVE TIL FIL
     public void writeScoresToFile(String filename){
@@ -113,25 +123,7 @@ public class Highscore {
 
     }
 
-    //LESE FRA FIL
-    public void getScoresFromFile(GridPane spillbrett, String filename){
-        try {
-            Scanner scanner = new Scanner(new File(filename));
-            while(scanner.hasNextLine()){
-                String line = scanner.nextLine();
-                String[] lineInfo = line.split(",");
 
-                String name = lineInfo[0];
-                String score = lineInfo[1];
-
-            }
-            scanner.close();
-
-
-        } catch (FileNotFoundException e) {
-           System.out.println("Noe gikk galt");
-        }
-    }
 
     public static void main(String[] args) {
         Highscore highscore = new Highscore();

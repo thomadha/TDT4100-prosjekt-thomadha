@@ -41,6 +41,7 @@ public class Snake {
         }
         kropp.setxValue(xVerdi);
         kropp.setyValue(yVerdi);
+        
         // sjekker om ny del av slangen allerede er en del av slangen.
         for (XYvalue part : snakeBody) {
             if (part.getxValue() == kropp.getxValue() && part.getyValue() == kropp.getyValue()) {

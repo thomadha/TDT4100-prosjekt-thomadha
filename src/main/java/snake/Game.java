@@ -1,15 +1,13 @@
 package snake;
 
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
 
-import javafx.animation.Timeline;
+import java.util.List;
+
 import javafx.scene.Node;
+
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
+
 
 public class Game {
     //FELTER
@@ -18,11 +16,13 @@ public class Game {
     private Apple apple;
     private List <Node> childrenOfSnake= new ArrayList<>();
     private String name;
+    private Highscore leaderboard;
 
     //KONSTRUKTØR
     public Game(){
         this.snake = new Snake();
         this.score = 0;
+        
     }
 
     //STANDARDMETODER
@@ -115,9 +115,35 @@ public class Game {
 
         }
 
-
     }
 
-    
+    public void addRoundToLeaderBoard(String name, Integer score, Highscore leaderboard){
+        leaderboard.addScore(name, score);
+        leaderboard.writeScoresToFile("Scores.txt");
+    }
+
+    /* public void updateGameLeaderBoard(TextArea leaderboard, String filename){
+        try {
+            Scanner scanner = new Scanner(new File(filename));
+            while(scanner.hasNextLine()){
+                String line = scanner.nextLine();
+                String[] lineInfo = line.split(",");
+
+                String name = lineInfo[0];
+                String score = lineInfo[1];
+
+                leaderboard.setText(name + "        " + score + "points" + "\n");
+
+            }
+            scanner.close();
+
+
+        } catch (FileNotFoundException e) {
+           System.out.println("Noe gikk galt");
+        }
+    }
+         */
 
 }
+
+    
