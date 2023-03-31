@@ -6,6 +6,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
+
+
 public class Highscore {
     //FELTER
     private LinkedHashMap<String, Integer> highscore;
@@ -36,12 +38,29 @@ public class Highscore {
         return sorted_highscoreList; //synkende rekkefølge!
     }
 
+
     //METODER
     public Integer getWorstScore(){
-        return Integer.parseInt(String.valueOf(this.getHighscore().entrySet().toArray()[this.getHighscore().size()-1]));    }
+        LinkedHashMap<String, Integer> asscendingHighscoreList = highscore.entrySet()
+            .stream()
+            .sorted(Map.Entry.comparingByValue())
+            .collect(Collectors.toMap(
+            Map.Entry :: getKey,
+            Map.Entry :: getValue,
+            (oldValue, newValue) -> oldValue, LinkedHashMap :: new
+        ));
+
+        Entry <String, Integer> entryWithSmallestValue = asscendingHighscoreList
+        .entrySet()
+        .stream()
+        .findFirst()
+        .get();
 
 
+        return entryWithSmallestValue.getValue(); //synkende rekkefølge!
+    }
     
+
     public void addScore(String name, Integer new_score){
         //Hvis max_size ikke er nådd på highscoren, så skal alle nye resultat legges til
         if (highscore.size() < max_size){
@@ -74,15 +93,29 @@ public class Highscore {
     public static void main(String[] args) {
         Highscore highscore = new Highscore();
 
+        highscore.addScore("Thomas",9);
         highscore.addScore("Amalie", 10);
-        highscore.addScore("Thomas", 2);
-        highscore.addScore("Katrine", 7);
-        highscore.addScore("Jennina", 3);
+        highscore.addScore("Katrine", 8);
+        highscore.addScore("Anine", 7);
+        highscore.addScore("Jennina", 21);
+        highscore.addScore("Sara", 5);
+        highscore.addScore("Jenny", 4);
+        highscore.addScore("Siri", 3);
+        highscore.addScore("Marius", 2);
+        highscore.addScore("Jorunn", 8);
+        highscore.addScore("Henrik", 20);
+        highscore.addScore("Jen", 4);
+
+
+   
 
         highscore.printHighscore();
-    }
+
+      
+        }
 
 
+    
     
     
 }
