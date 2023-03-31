@@ -1,10 +1,15 @@
 package snake;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
+import javafx.animation.Timeline;
 import javafx.scene.Node;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
 
 public class Game {
     //FELTER
@@ -113,5 +118,6 @@ public class Game {
 
     }
 
+    
 
 }
