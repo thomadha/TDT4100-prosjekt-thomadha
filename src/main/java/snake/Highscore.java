@@ -1,10 +1,16 @@
 package snake;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import java.util.Scanner;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
+
+import javafx.scene.layout.GridPane;
 
 
 
@@ -81,12 +87,49 @@ public class Highscore {
             }
         }
     }
-
     
     public void printHighscore() {
         System.out.println("HIGHSCORE:");
         for(String i: this.getHighscore().keySet()){
             System.out.println("\n Navn: " + i +  "            Score: " + this.getHighscore().get(i));
+        }
+    }
+
+    //FILHÅNDTERING
+
+    //SKRIVE TIL FIL
+    public void writeScoresToFile(String filename){
+        try{
+            PrintWriter writer = new PrintWriter(filename);
+            for(Entry<String, Integer> result : this.getHighscore().entrySet()){
+                writer.println(result.getKey() + "," + result.getValue());
+                
+            }
+            writer.flush();
+            writer.close();
+        } catch(FileNotFoundException e){
+            System.out.println("Noe gikk galt!");
+        }
+
+    }
+
+    //LESE FRA FIL
+    public void getScoresFromFile(GridPane spillbrett, String filename){
+        try {
+            Scanner scanner = new Scanner(new File(filename));
+            while(scanner.hasNextLine()){
+                String line = scanner.nextLine();
+                String[] lineInfo = line.split(",");
+
+                String name = lineInfo[0];
+                String score = lineInfo[1];
+
+            }
+            scanner.close();
+
+
+        } catch (FileNotFoundException e) {
+           System.out.println("Noe gikk galt");
         }
     }
 
@@ -105,11 +148,13 @@ public class Highscore {
         highscore.addScore("Jorunn", 8);
         highscore.addScore("Henrik", 20);
         highscore.addScore("Jen", 4);
-
+        highscore.addScore("Lea", 22);
 
    
-
+        System.out.println(highscore.getHighscore().entrySet());
         highscore.printHighscore();
+
+        highscore.writeScoresToFile("Highscore.txt");
 
       
         }
