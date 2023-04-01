@@ -1,8 +1,6 @@
 package snake;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.Scanner;
+
 
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
@@ -41,47 +39,43 @@ public class SnakeController {
     private Snake snake;
 
     @FXML
-    private User user;
-
-    @FXML
     private Highscore scoreboard = new Highscore();
 
     @FXML
     private Timeline klokke;
 
     @FXML
-    private void initializeGame() { // må bytte ut med egen et ellet annet
+    private void initializeGame() { 
 
         Game new_game = new Game();
         String navn = this.navn.getText();
-        this.user = new User(this.navn.getText(),new_game.getScore());
         this.snake = new_game.getSnake();
 
-        // Kaller på metode som tegner inn slangen
+        // Kaller på metode som tegner inn slangen og et eple
         new_game.drawBoard(spillbrett);
-
         new_game.placeApple(spillbrett, new Apple());
 
         this.klokke = new Timeline(new KeyFrame(javafx.util.Duration.seconds(0.5), e -> {
+            //HVIS IKKE GAME-OVER, SKJER DETTE VED HVER FRAME
             try{
                 snake.move();
                 System.out.println(snake);
                 System.out.println(new_game.getApple());
     
-                // Genererer nytt eple og sjekker om
+                // Oppdaterer spillbrettet, genererer nytt eple og endrer score om det forrige er spist
                 new_game.updateBoard(spillbrett, snake, new_game.getApple());
     
                 // Endrer poengscore
                 poengScore.setText(Integer.toString(new_game.getScore()));
     
             //HVIS GAME OVER:
-            } catch(Exception k){
+            } catch(Exception k){   
                 klokke.stop();
                 System.out.println("Game over");
                 
-                //Update scoreboard
+                //Oppdaterer Leaderboard
                 new_game.addRoundToLeaderBoard(navn, Integer.parseInt(poengScore.getText()), scoreboard);
-                updateGameLeaderBoard(leaderBoard, "Scores.txt");
+                new_game.updateGameLeaderBoard(leaderBoard, "Scores.txt");
 
 
 
@@ -90,9 +84,6 @@ public class SnakeController {
 
                 //Text gameover = new Text("GAME OVER" + "\n Score: " + new_game.getScore());
                 //background.getChildren().add(gameover); 
-
-
-
                 
             }
 
@@ -101,28 +92,7 @@ public class SnakeController {
         klokke.setCycleCount(Animation.INDEFINITE);
         klokke.playFromStart();
     }
-    @FXML
-    public void updateGameLeaderBoard(TextArea leaderboard, String filename){
-        try {
-            leaderboard.setText(" ");
-            Scanner scanner = new Scanner(new File(filename));
-            while(scanner.hasNextLine()){
-                String line = scanner.nextLine();
-                String[] lineInfo = line.split(",");
 
-                String name = lineInfo[0];
-                String score = lineInfo[1];
-
-                //leaderboard.setText(name + "                                            " + score + "points" + "\n");
-                leaderboard.appendText(name + "                                            " + score + "points" + "\n");
-            }
-            scanner.close();
-
-
-        } catch (FileNotFoundException e) {
-           System.out.println("Noe gikk galt");
-        }
-    }
 
     @FXML
     private void right() {
@@ -145,16 +115,13 @@ public class SnakeController {
     }
 
     /*
-     * Hva vi mangler:
-     * 
-     * Lage tester
-     * Lese fra fil
-     * fikse brukernavn
-     * føre inn poengscore og leaderboard
+     Hva vi mangler:
      
+     * Lage tester
+     * Skrive word-dokument
      * Gjøre noe med brukergrensesnittet når spillet er over???
 
-     * 
+     
      */
 
 }

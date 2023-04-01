@@ -1,4 +1,10 @@
-Amalie,8
-rui,2
-ane,1
-thomas,1
+Helena,4
+Katrine,4
+Bård,4
+Jennina,3
+Hulda,3
+Lila,2
+Amalie,1
+Thomas,1
+Ane,1
+Henrik,0

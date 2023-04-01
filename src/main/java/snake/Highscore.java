@@ -46,6 +46,8 @@ public class Highscore {
 
 
     //METODER
+
+    //Sorterer mapet i stigende rekkefølge, og henter ut det første elementet
     public Integer getWorstScore(){
         LinkedHashMap<String, Integer> asscendingHighscoreList = highscore.entrySet()
             .stream()
@@ -63,7 +65,7 @@ public class Highscore {
         .get();
 
 
-        return entryWithSmallestValue.getValue(); //synkende rekkefølge!
+        return entryWithSmallestValue.getValue();
     }
     
 

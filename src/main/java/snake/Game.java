@@ -1,11 +1,14 @@
 package snake;
 
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import java.util.List;
+import java.util.Scanner;
 
 import javafx.scene.Node;
-
+import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
 
 
@@ -62,12 +65,13 @@ public class Game {
         this.apple = apple;
         spillbrett.add(apple.getApplenode(), apple.getCoordinate().getxValue(), apple.getCoordinate().getyValue());
 
-        //Hva om eplet plasseres på slangen? 
-        if(snake.getSnakeBody().contains(apple.getCoordinate())){
+        //Hva om eplet plasseres på slangen?
+        for (XYvalue body: snake.getSnakeBody()){
+            if(body.getxValue() == apple.getCoordinate().getxValue() && body.getyValue() == apple.getCoordinate().getyValue()){ 
             placeApple(spillbrett, apple);
-        } 
+            } 
 
-
+        }
     }
 
     //Sjekker om eplet er spist
@@ -80,7 +84,6 @@ public class Game {
         }
         return false;
             
-        
     }
 
     //Flytter på slangen, generering av nytt eple, øking av poengscore
@@ -122,8 +125,9 @@ public class Game {
         leaderboard.writeScoresToFile("Scores.txt");
     }
 
-    /* public void updateGameLeaderBoard(TextArea leaderboard, String filename){
+    public void updateGameLeaderBoard(TextArea leaderboard, String filename){
         try {
+            leaderboard.setText(" ");
             Scanner scanner = new Scanner(new File(filename));
             while(scanner.hasNextLine()){
                 String line = scanner.nextLine();
@@ -132,8 +136,8 @@ public class Game {
                 String name = lineInfo[0];
                 String score = lineInfo[1];
 
-                leaderboard.setText(name + "        " + score + "points" + "\n");
-
+                //leaderboard.setText(name + "                                            " + score + "points" + "\n");
+                leaderboard.appendText(name + "                        " + score + " points" + "\n");
             }
             scanner.close();
 
@@ -142,7 +146,6 @@ public class Game {
            System.out.println("Noe gikk galt");
         }
     }
-         */
 
 }
 
