@@ -14,6 +14,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class SnakeController {
@@ -46,8 +47,9 @@ public class SnakeController {
 
     @FXML
     private void initializeGame() { 
-
+    
         Game new_game = new Game();
+
         String navn = this.navn.getText();
         this.snake = new_game.getSnake();
 
@@ -70,27 +72,32 @@ public class SnakeController {
     
             //HVIS GAME OVER:
             } catch(Exception k){   
-                klokke.stop();
-                System.out.println("Game over");
                 
+                System.out.println("Game over");
+                klokke.stop();
+                
+                
+                //LEGGER TIL GAMEOVER-SKJERM --> HJEELP FÅR IKKE FJERNET DENNE THOMAS :( 
+                //metoder for denne ligger i Game, og bare kommenter ut denne linjen (82), for at spillet skal kjøre normalt
+                new_game.addGameoverScreen(background); 
+                
+
                 //Oppdaterer Leaderboard
                 new_game.addRoundToLeaderBoard(navn, Integer.parseInt(poengScore.getText()), scoreboard);
                 new_game.updateGameLeaderBoard(leaderBoard, "Scores.txt");
-
-
-
-                //Rectangle popup = new Rectangle(600, 500, Color.LIGHTSKYBLUE);
-                //background.getChildren().add(popup);
-
-                //Text gameover = new Text("GAME OVER" + "\n Score: " + new_game.getScore());
-                //background.getChildren().add(gameover); 
+                
                 
             }
-
+            
         }));
-
+        
+        //PRØVER Å FJERNE FORRIGE SPILL SIN GAMEOVER SKJERM, MEN FUNKER IKKE
+        new_game.removeGameoverScreen(background);
+       
         klokke.setCycleCount(Animation.INDEFINITE);
         klokke.playFromStart();
+        
+       
     }
 
 

@@ -1,16 +1,14 @@
 package snake;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.util.Comparator;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.Map.Entry;
 import java.util.stream.Collectors;
 
-import javafx.scene.layout.GridPane;
+
 
 
 
