@@ -1,1 +1,4 @@
-amalie,1
+Amalie,8
+rui,2
+ane,1
+thomas,1

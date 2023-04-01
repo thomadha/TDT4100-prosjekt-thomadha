@@ -104,6 +104,7 @@ public class SnakeController {
     @FXML
     public void updateGameLeaderBoard(TextArea leaderboard, String filename){
         try {
+            leaderboard.setText(" ");
             Scanner scanner = new Scanner(new File(filename));
             while(scanner.hasNextLine()){
                 String line = scanner.nextLine();
