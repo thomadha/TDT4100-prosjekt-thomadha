@@ -1,2 +1,2 @@
-Amalie,1
-Thomas,0
+snake,1
+snake2,1

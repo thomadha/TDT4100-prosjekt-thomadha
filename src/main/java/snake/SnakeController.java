@@ -4,7 +4,6 @@ package snake;
 
 import javafx.animation.Animation;
 import javafx.animation.KeyFrame;
-
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -51,7 +50,7 @@ public class SnakeController {
     private void initializeGame() { 
         Game new_game = new Game();
 
-        //henter den gamle controlleren og fjerner game over skjermen fra spillet før
+        //henter den gamle controlleren og fjerner game over skjermen fra spillet
         if(old_SnakeController != null){
             old_SnakeController.getBackground().getChildren().remove(old_game.getGameoverScreen());
             old_SnakeController.getBackground().getChildren().remove(old_game.getGameoverText());
@@ -83,24 +82,17 @@ public class SnakeController {
                 System.out.println("Game over");
                 klokke.stop();
                 
-                
-                //LEGGER TIL GAMEOVER-SKJERM --> HJEELP FÅR IKKE FJERNET DENNE THOMAS :( 
-                //metoder for denne ligger i Game, og bare kommenter ut denne linjen (82), for at spillet skal kjøre normalt
                 new_game.addGameoverScreen(background); 
-                
 
                 //Oppdaterer Leaderboard
                 new_game.addRoundToLeaderBoard(navn, Integer.parseInt(poengScore.getText()), scoreboard);
                 new_game.updateGameLeaderBoard(leaderBoard, "Scores.txt");
                 
-                
             }
             
         }));
-        
-        //PRØVER Å FJERNE FORRIGE SPILL SIN GAMEOVER SKJERM, MEN FUNKER IKKE
-        //new_game.removeGameoverScreen(background);
 
+        //husker det gamle spillet og controlleren slik at den kan fjerne det ved start av neeste spill
         old_game = new_game; 
         old_SnakeController = this;
        
@@ -142,7 +134,6 @@ public class SnakeController {
      
      * Lage tester
      * Skrive word-dokument
-     * Gjøre noe med brukergrensesnittet når spillet er over???
 
      
      */
