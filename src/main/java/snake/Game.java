@@ -3,7 +3,7 @@ package snake;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-
+import java.util.Formatter;
 import java.util.List;
 import java.util.Scanner;
 
@@ -145,8 +145,14 @@ public class Game {
                 String name = lineInfo[0];
                 String score = lineInfo[1];
 
-                // leaderboard.setText(name + " " + score + "points" + "\n");
-                leaderboard.appendText(name + "                        " + score + " points" + "\n");
+
+                //leaderboard.appendText(name + "                        " + score + " points" + "\n");
+
+                //prøver å formatere det på en kul måte, men funker ikke ;(
+                String tekstEn = String.format(" %-25s ", name);
+                String tekstTo = String.format("Score: %s %n ", score);
+                leaderboard.appendText(tekstEn);
+                leaderboard.appendText(tekstTo);
             }
             scanner.close();
 
