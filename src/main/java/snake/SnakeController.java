@@ -12,12 +12,14 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 
 public class SnakeController {
+
+    private Game old_game; 
+    private SnakeController old_SnakeController; 
+
+    
     @FXML
     private AnchorPane background;
 
@@ -47,8 +49,13 @@ public class SnakeController {
 
     @FXML
     private void initializeGame() { 
-    
         Game new_game = new Game();
+
+        //henter den gamle controlleren og fjerner game over skjermen fra spillet før
+        if(old_SnakeController != null){
+            old_SnakeController.getBackground().getChildren().remove(old_game.getGameoverScreen());
+            old_SnakeController.getBackground().getChildren().remove(old_game.getGameoverText());
+        }
 
         String navn = this.navn.getText();
         this.snake = new_game.getSnake();
@@ -92,7 +99,10 @@ public class SnakeController {
         }));
         
         //PRØVER Å FJERNE FORRIGE SPILL SIN GAMEOVER SKJERM, MEN FUNKER IKKE
-        new_game.removeGameoverScreen(background);
+        //new_game.removeGameoverScreen(background);
+
+        old_game = new_game; 
+        old_SnakeController = this;
        
         klokke.setCycleCount(Animation.INDEFINITE);
         klokke.playFromStart();
@@ -119,6 +129,12 @@ public class SnakeController {
     @FXML
     private void down() {
         snake.changeDirection("down");
+    }
+
+    //STANDARDMETODER 
+
+    public AnchorPane getBackground() {
+        return background;
     }
 
     /*

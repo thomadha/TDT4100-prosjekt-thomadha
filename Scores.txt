@@ -1,2 +1,2 @@
-Mamma,11
-Amalie,3
+Amalie,1
+Thomas,0

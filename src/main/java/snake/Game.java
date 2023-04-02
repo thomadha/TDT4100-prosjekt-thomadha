@@ -164,12 +164,6 @@ public class Game {
 
 
     }
-
-    public void removeGameoverScreen(AnchorPane background) {
-        background.getChildren().remove(gameovertext);
-        background.getChildren().remove(gameoverscreen); 
-        
-    }
     
     public void setGameoverText(){
         Text text = new Text(410, 380, "DU TAPTE!:)");
