@@ -20,7 +20,7 @@
    <children>
       <Label layoutX="236.0" layoutY="26.0" text="VELKOMMEN TIL SNAKE!">
          <font>
-            <Font name="Bodoni 72 Book" size="50.0" />
+            <Font size="42.0" />
          </font>
          <effect>
             <Reflection />
@@ -28,7 +28,7 @@
       </Label>
       <Button alignment="CENTER" contentDisplay="CENTER" layoutX="769.0" layoutY="260.0" mnemonicParsing="false" onAction="#initializeGame" prefHeight="60.0" prefWidth="162.0" text="START" textAlignment="CENTER">
          <font>
-            <Font name="Bodoni 72 Book" size="30.0" />
+            <Font size="28.0" />
          </font>
          <cursor>
             <Cursor fx:constant="OPEN_HAND" />
