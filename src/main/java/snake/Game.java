@@ -70,7 +70,7 @@ public class Game {
     // Plasserer et nytt eple
     public void placeApple(GridPane spillbrett, Apple apple) {
         this.apple = apple;
-        spillbrett.add(apple.getApplenode(), apple.getCoordinate().getxValue(), apple.getCoordinate().getyValue());
+        spillbrett.add(apple.getApplenode(), apple.getxValue(), apple.getyValue());
 
         // Hva om eplet plasseres på slangen?
         for (XYvalue body : snake.getSnakeBody()) {
@@ -85,8 +85,8 @@ public class Game {
     // Sjekker om eplet er spist
     public boolean isAppleEaten(GridPane spillbrett, Snake snake, Apple new_apple) {
         for (XYvalue body : snake.getSnakeBody()) {
-            if (body.getxValue() == new_apple.getCoordinate().getxValue()
-                    && body.getyValue() == new_apple.getCoordinate().getyValue()) {
+            if (body.getxValue() == new_apple.getxValue()
+                    && body.getyValue() == new_apple.getyValue()) {
                 return true;
             }
 
