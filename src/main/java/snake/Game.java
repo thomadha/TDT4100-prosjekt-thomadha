@@ -134,6 +134,7 @@ public class Game {
         leaderboard.writeScoresToFile("Scores.txt");
     }
 
+    //LESER FRA FIL FOR Å OPPDATERE LEADERBOARD
     public void updateGameLeaderBoard(TextArea leaderboard, String filename) {
         try {
             leaderboard.setText(" ");
@@ -145,7 +146,7 @@ public class Game {
                 String name = lineInfo[0];
                 String score = lineInfo[1];
 
-                // leaderboard.setText(name + " " + score + "points" + "\n");
+                
                 leaderboard.appendText(name + "                        " + score + " points" + "\n");
             }
             scanner.close();

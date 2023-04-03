@@ -9,7 +9,16 @@ public class Apple implements SnakeInterface {
 
     //KONSTRUKTØR
     public Apple(){
-        this.coordinate = new XYvalue();
+
+        //Sørger for at eplet ikke kan genereres i hjørnene av brettet
+        XYvalue applecoordinate = new XYvalue();
+        while((applecoordinate.getxValue() == 0 && applecoordinate.getyValue() == 0)||
+            (applecoordinate.getxValue() == 0 && applecoordinate.getyValue() == 10)||
+            (applecoordinate.getxValue() == 10 && applecoordinate.getyValue() == 0)||
+            (applecoordinate.getxValue() == 10 && applecoordinate.getyValue() == 10)){
+                applecoordinate = new XYvalue();
+            }
+        this.coordinate = applecoordinate;
         this.applenode = this.coordinate.getRectangle();
     }
 
