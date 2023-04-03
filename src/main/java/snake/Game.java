@@ -15,6 +15,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 
 public class Game {
     // FELTER
@@ -129,6 +130,7 @@ public class Game {
 
     }
 
+    //LEGGER DIN SCORE OG DITT NAVN TIL I LEADERBOARD-MAPET
     public void addRoundToLeaderBoard(String name, Integer score, Highscore leaderboard) {
         leaderboard.addScore(name, score);
         leaderboard.writeScoresToFile("Scores.txt");
@@ -167,8 +169,9 @@ public class Game {
     }
     
     public void setGameoverText(){
-        Text text = new Text(410, 380, "DU TAPTE!:)");
-        text.setFont(Font.font("Bodoni 72", 40));
+        Text text = new Text(338, 300, "DU TAPTE! :( \n \n MEN, \n GJERNE PRØV IGJEN :)");
+        text.setFont(Font.font("Bodoni 72", 35));
+        text.setTextAlignment(TextAlignment.CENTER);
         this.gameovertext = text;
         
     }
