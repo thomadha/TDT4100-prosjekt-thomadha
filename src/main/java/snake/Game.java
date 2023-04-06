@@ -3,7 +3,7 @@ package snake;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
-import java.util.Formatter;
+
 import java.util.List;
 import java.util.Scanner;
 
@@ -15,6 +15,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
+import javafx.scene.text.TextAlignment;
 
 public class Game {
     // FELTER
@@ -70,7 +71,7 @@ public class Game {
     // Plasserer et nytt eple
     public void placeApple(GridPane spillbrett, Apple apple) {
         this.apple = apple;
-        spillbrett.add(apple.getApplenode(), apple.getCoordinate().getxValue(), apple.getCoordinate().getyValue());
+        spillbrett.add(apple.getApplenode(), apple.getxValue(), apple.getyValue());
 
         // Hva om eplet plasseres på slangen?
         for (XYvalue body : snake.getSnakeBody()) {
@@ -85,8 +86,8 @@ public class Game {
     // Sjekker om eplet er spist
     public boolean isAppleEaten(GridPane spillbrett, Snake snake, Apple new_apple) {
         for (XYvalue body : snake.getSnakeBody()) {
-            if (body.getxValue() == new_apple.getCoordinate().getxValue()
-                    && body.getyValue() == new_apple.getCoordinate().getyValue()) {
+            if (body.getxValue() == new_apple.getxValue()
+                    && body.getyValue() == new_apple.getyValue()) {
                 return true;
             }
 
@@ -129,11 +130,13 @@ public class Game {
 
     }
 
+    //LEGGER DIN SCORE OG DITT NAVN TIL I LEADERBOARD-MAPET
     public void addRoundToLeaderBoard(String name, Integer score, Highscore leaderboard) {
         leaderboard.addScore(name, score);
         leaderboard.writeScoresToFile("Scores.txt");
     }
 
+    //LESER FRA FIL FOR Å OPPDATERE LEADERBOARD
     public void updateGameLeaderBoard(TextArea leaderboard, String filename) {
         try {
             leaderboard.setText(" ");
@@ -145,14 +148,8 @@ public class Game {
                 String name = lineInfo[0];
                 String score = lineInfo[1];
 
-
-                //leaderboard.appendText(name + "                        " + score + " points" + "\n");
-
-                //prøver å formatere det på en kul måte, men funker ikke ;(
-                String tekstEn = String.format(" %-25s ", name);
-                String tekstTo = String.format("Score: %s %n ", score);
-                leaderboard.appendText(tekstEn);
-                leaderboard.appendText(tekstTo);
+                
+                leaderboard.appendText(name + "                        " + score + " points" + "\n");
             }
             scanner.close();
 
@@ -172,8 +169,9 @@ public class Game {
     }
     
     public void setGameoverText(){
-        Text text = new Text(410, 380, "DU TAPTE!:)");
-        text.setFont(Font.font("Bodoni 72", 40));
+        Text text = new Text(338, 300, "DU TAPTE! :( \n \n MEN, \n GJERNE PRØV IGJEN :)");
+        text.setFont(Font.font("Bodoni 72", 35));
+        text.setTextAlignment(TextAlignment.CENTER);
         this.gameovertext = text;
         
     }

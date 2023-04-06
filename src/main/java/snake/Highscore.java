@@ -99,14 +99,6 @@ public class Highscore {
 
     //FILHÅNDTERING
 
-    //MÅ FIKSE TOSTRING PÅ EN ELLER ANNEN MÅTE
-    /* @Override
-    public String toString() {
-        for(String i: this.getHighscore().keySet()){
-            return "\n Navn: " + i +  "            Score: " + this.getHighscore().get(i);
-        }
-    } */
-
     //SKRIVE TIL FIL
     public void writeScoresToFile(String filename){
         try{
