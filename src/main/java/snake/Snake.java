@@ -55,8 +55,8 @@ public class Snake {
     }
 
     public void grow(Apple apple) {
-        int xVerdi = apple.getCoordinate().getxValue();
-        int yVerdi = apple.getCoordinate().getyValue();
+        int xVerdi = apple.getxValue();
+        int yVerdi = apple.getyValue();
         switch (direction) {
             case ("right"):
                 xVerdi += 1;
@@ -85,6 +85,10 @@ public class Snake {
     // getter
     public List<XYvalue> getSnakeBody() {
         return this.snakeBody;
+    }
+
+    public String getDirection() {
+        return direction;
     }
 
     @Override
