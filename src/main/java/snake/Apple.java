@@ -24,6 +24,7 @@ public class Apple implements SnakeInterface {
 
     public Apple(int xvalue, int yvalue){
         XYvalue applecoordinate = new XYvalue(xvalue, yvalue);
+        
         if((applecoordinate.getxValue() == 0 && applecoordinate.getyValue() == 0)||
         (applecoordinate.getxValue() == 0 && applecoordinate.getyValue() == 10)||
         (applecoordinate.getxValue() == 10 && applecoordinate.getyValue() == 0)||
