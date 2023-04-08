@@ -104,8 +104,10 @@ public class SnakeMovementTest {
 
         assertEquals(4, snake4.getSnakeBody().size(),"Snake has wrong size");
 
-        assertEquals(4, snake4.getSnakeBody().get(snakeLength - 1), "Snake in wrong position");
-        assertEquals(1, snake4.getSnakeBody().get(snakeLength - 1), "Snake in wrong position");
+        //Endret den på linje 108 her "exptected" til 5 istedenfor 4, for hodet vil vel være på 
+        //x-koordinat 5 her, siden du la til at den vokser i hodet ahha, enig(?)
+        assertEquals(5, snake4.getSnakeBody().get(snakeLength - 1).getxValue(), "Snake in wrong position");
+        assertEquals(1, snake4.getSnakeBody().get(snakeLength - 1).getyValue(), "Snake in wrong position");
     }
 
 }
