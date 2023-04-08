@@ -1,1 +1,3 @@
-Jørgen,3
+a,0
+b,0
+dsdsds,0
