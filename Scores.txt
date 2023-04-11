@@ -1,1 +1,3 @@
-Amalie,19
+jennina,4
+Amalie,3
+jenny,2
