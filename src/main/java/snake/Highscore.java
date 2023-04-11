@@ -70,7 +70,14 @@ public class Highscore {
     public void addScore(String name, Integer new_score){
         //Hvis max_size ikke er nådd på highscoren, så skal alle nye resultat legges til
         if (highscore.size() < max_size){
-            highscore.put(name, new_score);
+            if(highscore.containsKey(name)&& highscore.get(name) < new_score){
+                highscore.remove(name);
+                highscore.put(name, new_score);
+                
+            }
+            if(!highscore.containsKey(name)){
+                highscore.put(name, new_score);
+            }
         }
         //Hvis max_size er nådd på highscoren, sjekke om den nye scoren er god nok
         else{
@@ -127,12 +134,11 @@ public class Highscore {
         highscore.addScore("Jennina", 21);
         highscore.addScore("Sara", 5);
         highscore.addScore("Jenny", 4);
-        highscore.addScore("Siri", 3);
-        highscore.addScore("Marius", 2);
-        highscore.addScore("Jorunn", 8);
-        highscore.addScore("Henrik", 20);
-        highscore.addScore("Jen", 4);
-        highscore.addScore("Lea", 22);
+        //highscore.addScore("Siri", 3);
+        //highscore.addScore("Marius", 2);
+        //highscore.addScore("Jorunn", 8);
+        highscore.addScore("Thomas", 40);
+
 
    
         System.out.println(highscore.getHighscore().entrySet());
