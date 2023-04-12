@@ -56,6 +56,7 @@ public class Highscore {
             (oldValue, newValue) -> oldValue, LinkedHashMap :: new
         ));
 
+        //Henter ut første elment (det minste)
         Entry <String, Integer> entryWithSmallestValue = asscendingHighscoreList
         .entrySet()
         .stream()

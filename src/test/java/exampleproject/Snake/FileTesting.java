@@ -16,8 +16,8 @@ import snake.Highscore;
 
 public class FileTesting {
     private Highscore test_highscore;
-    List<String> names = new ArrayList<>();
-    List<Integer> scores = new ArrayList<>();
+    private List<String> names = new ArrayList<>();
+    private List<Integer> scores = new ArrayList<>();
 
     @Test
     @DisplayName("Write to file, and that scores are sorted")

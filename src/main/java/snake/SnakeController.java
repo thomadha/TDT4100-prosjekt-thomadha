@@ -129,13 +129,5 @@ public class SnakeController {
         return background;
     }
 
-    /*
-     Hva vi mangler:
-     
-     * Lage tester
-     * Skrive word-dokument
-
-     
-     */
 
 }
