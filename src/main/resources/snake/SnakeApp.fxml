@@ -18,7 +18,7 @@
 
 <AnchorPane fx:id="background" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="601.0" prefWidth="1000.0" style="-fx-background-color: #90EE90;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="snake.SnakeController">
    <children>
-      <Label layoutX="236.0" layoutY="26.0" text="VELKOMMEN TIL SNAKE!" textFill="#286cbf">
+      <Label layoutX="236.0" layoutY="26.0" text="VELKOMMEN TIL SNAKE!" textFill="#317bda">
          <font>
             <Font size="42.0" />
          </font>
@@ -44,7 +44,7 @@
             <Insets />
          </opaqueInsets>
       </Button>
-      <TextField fx:id="navn" layoutX="755.0" layoutY="208.0" prefHeight="41.0" prefWidth="190.0">
+      <TextField fx:id="navn" layoutX="755.0" layoutY="208.0" prefHeight="41.0" prefWidth="190.0" style="-fx-background-color: befcbe;">
          <font>
             <Font size="18.0" />
          </font></TextField>
@@ -119,7 +119,7 @@
          <font>
             <Font size="17.0" />
          </font></TextArea>
-      <Label layoutX="749.0" layoutY="572.0" prefHeight="29.0" prefWidth="250.0" text="Creators: Thomas &amp; Amalie &lt;3" textFill="#286cbf">
+      <Label layoutX="749.0" layoutY="572.0" prefHeight="29.0" prefWidth="250.0" text="Creators: Thomas &amp; Amalie &lt;3">
          <font>
             <Font size="19.0" />
          </font>
