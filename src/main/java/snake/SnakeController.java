@@ -79,7 +79,8 @@ public class SnakeController {
             //HVIS GAME OVER:
             } catch(Exception k){   
                 
-                System.out.println("Game over");
+                System.out.println(k);
+
                 klokke.stop();
                 
                 new_game.addGameoverScreen(background); 

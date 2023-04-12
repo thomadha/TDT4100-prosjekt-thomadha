@@ -23,9 +23,7 @@ public class Highscore {
         this.max_size = 10;
     }
 
-    //VALIDERINGSMETODER
     
-
     //STANDARDMETODER
 
     //Sorterer listen i synkende rekkefølge før den returneres

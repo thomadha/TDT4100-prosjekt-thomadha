@@ -32,8 +32,6 @@ public class Apple implements SnakeInterface {
             throw new IllegalArgumentException("Invalid cooordinates");
         }
 
-        //DISSE TO LINJENE UNDER FIKSER TESTEN I SNAKEMOVEMENT, HADDE GLEMT Å 
-        //FAKTISK SETTE EPLET SITT KOORDINATER I DENNE KONSTRUKTØREN HEHE
         this.coordinate = applecoordinate;
         this.applenode = this.coordinate.getRectangle();
 
