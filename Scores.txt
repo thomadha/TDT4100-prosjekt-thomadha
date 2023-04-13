@@ -1,1 +1,2 @@
-Amalie,42
+Lars,16
+Jenny,8

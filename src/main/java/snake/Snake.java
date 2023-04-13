@@ -57,6 +57,7 @@ public class Snake {
     //gror slangen i den rettningen den peker. 
     public void grow(Apple apple) {
         //tar utgangspunkt i eplenoden, dvs. at slangen gror med "hodet"
+        //tar utgangspunkt i eplenoden, dvs. at slangen gror med "hodet"
         int xVerdi = apple.getxValue();
         int yVerdi = apple.getyValue();
         switch (direction) {
@@ -78,6 +79,7 @@ public class Snake {
     }
 
     public void changeDirection(String direction) {
+        //validering av rettning til slangen
         //validering av rettning til slangen
         if (!(direction.matches("right|left|up|down"))) {
             throw new IllegalArgumentException("Må være en gyldig rettning");
