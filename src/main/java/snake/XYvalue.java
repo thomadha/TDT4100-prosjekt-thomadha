@@ -20,7 +20,7 @@ public class XYvalue implements SnakeInterface {
 
     }
 
-    //KONSTRUKTØR 2
+    //KONSTRUKTØR 2 - Du kan sette x-verdi og y-verdi selv
     public XYvalue(int xValue, int yValue){
         setxValue(xValue);
         setyValue(yValue);
@@ -30,6 +30,7 @@ public class XYvalue implements SnakeInterface {
 
     //STANDARDMETODER
     public void setxValue(int xValue) {
+        //Validering&Unntakshåndtering
         if(xValue>10 || xValue<0){
             throw new IllegalArgumentException("Du traff veggen!");
         }
@@ -37,6 +38,7 @@ public class XYvalue implements SnakeInterface {
     }
 
     public void setyValue(int yValue) {
+        //Validering&Unntakshåndtering
         if(yValue>10 || yValue<0){
             throw new IllegalArgumentException("Du traff veggen!");
         }
