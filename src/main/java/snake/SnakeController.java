@@ -50,7 +50,7 @@ public class SnakeController {
     private void initializeGame() { 
         Game new_game = new Game();
 
-        //henter den gamle controlleren og fjerner game over skjermen fra spillet
+        //Hvis ikke 1.spill, henter den gamle controlleren og fjerner gameover-skjermen fra spillet
         if(old_SnakeController != null){
             old_SnakeController.getBackground().getChildren().remove(old_game.getGameoverScreen());
             old_SnakeController.getBackground().getChildren().remove(old_game.getGameoverText());
@@ -93,7 +93,7 @@ public class SnakeController {
             
         }));
 
-        //husker det gamle spillet og controlleren slik at den kan fjerne det ved start av neeste spill
+        //husker det gamle spillet og controlleren slik at den kan fjerne det ved start av neste spill
         old_game = new_game; 
         old_SnakeController = this;
        

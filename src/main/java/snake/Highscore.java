@@ -67,7 +67,8 @@ public class Highscore {
     
 
     public void addScore(String name, Integer new_score){
-        //Hvis max_size ikke er nådd på highscoren, så skal alle nye resultat legges til
+        //Hvis max_size ikke er nådd på highscoren, så skal alle nye brukere legges til
+        //Hvis bruker allerede er på listen, skal ny score erstatte den gamle om den er bedre
         if (highscore.size() < max_size){
             if(highscore.containsKey(name)&& highscore.get(name) < new_score){
                 highscore.remove(name);
