@@ -70,19 +70,13 @@ public class Game {
 
     // Plasserer et nytt eple
     public void placeApple(GridPane spillbrett, Apple apple) {
-        // Hva om eplet plasseres på slangen?
 
+        // Hva om eplet plasseres på slangen?
         Apple apple1 = apple;
         while (isAppleEaten(spillbrett, snake, apple1)){
             apple1 = new Apple();
         }
-       /*  for (XYvalue body : snake.getSnakeBody()) {
-            if (body.getxValue() == apple.getCoordinate().getxValue()
-                    && body.getyValue() == apple.getCoordinate().getyValue()) {
-                placeApple(spillbrett, apple);
-            } */
-
-        //}
+       
         this.apple = apple1;
         spillbrett.add(apple1.getApplenode(), apple1.getxValue(), apple1.getyValue());
 
@@ -169,7 +163,6 @@ public class Game {
         
         background.getChildren().add(gameoverscreen);
         background.getChildren().add(gameovertext);
-
 
     }
     
