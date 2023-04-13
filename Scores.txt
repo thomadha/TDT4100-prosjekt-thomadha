@@ -1,2 +1,3 @@
-Lars,16
-Jenny,8
+Amalie,7
+Henrico,5
+Lila,4
