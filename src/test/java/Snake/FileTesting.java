@@ -1,4 +1,4 @@
-package exampleproject.Snake;
+package Snake;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
