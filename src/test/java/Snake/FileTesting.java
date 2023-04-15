@@ -1,4 +1,4 @@
-package Snake;
+package snake;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -12,7 +12,7 @@ import java.util.Scanner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import snake.Highscore;
+//import snake.Highscore;
 
 public class FileTesting {
     private Highscore test_highscore;
